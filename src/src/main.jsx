@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: homeLoader,
-        element: <Home title={`Tap into the Magic of Kodama`} />,
+        element: <Home title={`Vote, Share, Trust.`} />,
       },
       {
         path: `leaderboard`,
