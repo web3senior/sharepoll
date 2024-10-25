@@ -75,14 +75,19 @@ export default function Root() {
 
       <header className={`${styles.header}`}>
         <div className={`${styles.header__container} __container d-flex flex-row align-items-center justify-content-between h-100 ms-depth-4`} data-width={`xxxlarge`}>
+          {/* Logo */}
           <Link to={`/`}>
-            <figure className={`${styles['logo']}`}>
+            <div className={`${styles['logo']} d-flex align-items-center`}>
               <img alt={import.meta.env.VITE_TITLE} src={Logo} />
               <figcaption>{import.meta.env.VITE_NAME}</figcaption>
-            </figure>
+              <figure>
+                <img src={MenuIcon} className={`${styles['logo__nav']} ms-hiddenLgUp`} onClick={() => handleOpenNav()} />
+              </figure>
+            </div>
           </Link>
 
-          <ul className={`${styles['nav']} d-flex flex-row align-items-center justify-content-start`}>
+          {/* Menu */}
+          <ul className={`${styles['menu']} d-flex flex-row align-items-center justify-content-start`}>
             {links.map((item, i) => {
               return (
                 <li key={i}>
@@ -94,6 +99,7 @@ export default function Root() {
             })}
           </ul>
 
+          {/* Connect */}
           <div className={`d-flex flex-row align-items-center justify-content-end`} style={{ columnGap: `.3rem` }}>
             <div className={`${styles['network']} d-flex align-items-center justify-content-end`} onClick={() => showNetworkList()}>
               {auth.defaultChain && <SelectedChain />}

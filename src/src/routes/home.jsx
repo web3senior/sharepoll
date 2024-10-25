@@ -540,71 +540,29 @@ function Home({ title }) {
   // if (isPageLoading) return <Loading />
   return (
     <section className={`${styles.section} ms-motion-slideDownIn`}>
-      <div className={`${styles.section__container} __container d-flex flex-column align-items-center justify-content-center`} data-width={`xxxlarge`}>
+      <div className={`${styles.section__container} __container`} data-width={`large`}>
+        <div className={`d-f-c flex-column`}>
+          <h1>{import.meta.env.VITE_SLOGAN}</h1>
+          <h1>
+            Built on <span style={{ color: `#FE005B` }}>LUKSO</span>
+          </h1>
 
-          <div className={`${styles.tour} d-flex flex-row align-items-center justify-content-between`}>
-            <figure className={`d-flex flex-row align-items-center justify-content-between`}>
-              <img src={Sticker1} />
-              <figcaption>
-                {import.meta.env.VITE_NAME} stickers <br/>
-                coming soon
-              </figcaption>
-            </figure>
-            <button className={`rounded ms-fontWeight-semibold d-f-c`}>Dive in</button>
-          </div>
+          <ul className={`d-f-c`}>
+            <li className="d-flex">
+              <Icon name={`how_to_vote`} />
+              <Link to={`submit`}>Submit poll</Link>
+            </li>
+            <li className="d-flex">
+              <Icon name={`add_circle`} />
+              <Link to={`submit`}>Create poll</Link>
+            </li>
+          </ul>
+        </div>
 
-          <div className={`${styles.tapContainer} d-flex flex-column align-items-center justify-content-between`}>
-            <ul className={`${styles.point} d-flex flex-column`}>
-              <li className={`d-flex flex-row align-items-center justify-content-center`}>
-                <span className={`${styles.coin}`}></span>
-                <b> Standard</b>
-                <svg width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M3.37529 6.19377C3.74836 5.80649 3.74836 5.19351 3.37529 4.80623L0.556846 1.88045C0.315642 1.63006 0.315641 1.23375 0.556845 0.983359C0.81114 0.719379 1.2338 0.719379 1.4881 0.983359L5.17072 4.80623C5.5438 5.19351 5.5438 5.80649 5.17072 6.19377L1.4881 10.0166C1.2338 10.2806 0.811141 10.2806 0.556845 10.0166C0.315641 9.76625 0.315641 9.36994 0.556845 9.11955L3.37529 6.19377Z"
-                    fill="white"
-                  />
-                </svg>
-              </li>
-              <li className={`d-f-c`}>
-                <span>{tapCounter || 0}</span>
-              </li>
-              <li></li>
-            </ul>
-
-            <div id={`tap`} className={`${styles['tap']} animate pop`} onClick={(e) => handleTap(e)}>
-              <svg width="192" height="258" viewBox="0 0 192 258" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M79.6118 83.4409C79.6118 97.3528 64.2273 114.928 51.1095 114.928C37.9916 114.928 27.3575 98.9271 27.3575 85.0152C27.3575 79.2857 27.4902 70.6249 32.1079 66.1229C38.7025 59.6936 51.3114 58.4731 59.0268 58.4731C72.1446 58.4731 79.6118 69.529 79.6118 83.4409Z"
-                  fill="black"
-                />
-                <path
-                  d="M174.62 85.0152C174.62 99.7966 169.445 113.354 157.202 113.354C144.958 113.354 130.283 99.7966 130.283 85.0152C130.283 70.2338 135.457 56.6768 147.701 56.6768C155.619 56.6768 163.952 66.3038 170.639 71.4184C171.524 72.0956 172.27 72.9549 172.661 73.9987C173.919 77.3585 174.62 81.0881 174.62 85.0152Z"
-                  fill="black"
-                />
-                <path d="M112.098 221.817C113.534 221.011 114.267 219.324 113.792 217.747C107.088 195.441 78.0282 211.191 78.0282 217.261C78.0282 223.315 92.843 232.631 112.098 221.817Z" fill="black" />
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M154.034 242.451L170.599 215.578C179.544 201.069 186.228 185.154 188.646 168.281C192.144 143.879 192.392 121.246 188.383 88.0779C185.992 68.2893 180.593 48.228 167.391 33.295C157.069 21.6212 143.912 12.7564 122.524 2.91053C118.267 0.950463 113.611 0 108.924 0H87.0666C85.2661 0 83.4606 0.139687 81.6855 0.440859C63.0828 3.59702 53.7038 7.22125 40.0245 15.7436C-16.9796 47.2307 -10.6456 168.456 49.5253 242.451C65.5561 258.194 136.812 267.64 154.034 242.451ZM51.1095 114.928C64.2273 114.928 79.6118 97.3528 79.6118 83.4409C79.6118 69.529 72.1446 58.4731 59.0268 58.4731C51.3114 58.4731 38.7025 59.6936 32.1079 66.1229C27.4902 70.6249 27.3575 79.2857 27.3575 85.0152C27.3575 98.9271 37.9916 114.928 51.1095 114.928ZM157.202 113.354C169.445 113.354 174.62 99.7966 174.62 85.0152C174.62 81.0881 173.919 77.3585 172.661 73.9987C172.27 72.9549 171.524 72.0956 170.639 71.4184C163.952 66.3038 155.619 56.6768 147.701 56.6768C135.457 56.6768 130.283 70.2338 130.283 85.0152C130.283 99.7966 144.958 113.354 157.202 113.354ZM112.098 221.817C113.534 221.011 114.267 219.324 113.792 217.747C107.088 195.441 78.0282 211.191 78.0282 217.261C78.0282 223.315 92.843 232.631 112.098 221.817Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-
-            <div className={`${styles['energy']} d-f-c flex-column`}>
-              <div className={`d-flex align-items-center`}>
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.86523 15.6634L7.61523 10.5001H4.42773L10.0383 2.40869H10.3846L9.64905 8.25007H13.399L7.21155 15.6634H6.86523Z" fill="#F5F5F5" />
-                </svg>
-                24h / <span className={`ms-fontSize-18 ms-fontWeight-bold`}>{1000 - tapCounter}</span>
-              </div>
-
-              <progress id="file" max={1000} value={1000 - tapCounter}>
-                70%
-              </progress>
-            </div>
-          </div>
-
+        <p className={`ms-fontWeight-semibold`}>New polls</p>
+        <div className={`card`}>
+          <div className={`card__body`}>asdf</div>
+        </div>
       </div>
     </section>
   )
