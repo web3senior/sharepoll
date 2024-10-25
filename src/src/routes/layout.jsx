@@ -25,29 +25,17 @@ const links = [
     path: ``,
   },
   {
-    name: 'Marketplace',
+    name: 'Submit Vote',
     icon: null,
     target: '',
     path: `marketplace`,
   },
-  // {
-  //   name: 'Pricing',
-  //   icon: null,
-  //   target: '',
-  //   path: `pricing`,
-  // },
   {
-    name: 'Ecosystems',
+    name: 'Create Poll',
     icon: null,
     target: '',
     path: `ecosystem`,
   },
-  // {
-  //   name: 'Tips',
-  //   icon: null,
-  //   target: '',
-  //   path: `tip`,
-  // },
   {
     name: 'About',
     icon: null,
@@ -87,9 +75,25 @@ export default function Root() {
 
       <header className={`${styles.header}`}>
         <div className={`${styles.header__container} __container d-flex flex-row align-items-center justify-content-between h-100 ms-depth-4`} data-width={`xxxlarge`}>
-          
-          <span>{import.meta.env.VITE_NAME} 👻</span>
-          
+          <Link to={`/`}>
+            <figure className={`${styles['logo']}`}>
+              <img alt={import.meta.env.VITE_TITLE} src={Logo} />
+              <figcaption>{import.meta.env.VITE_NAME}</figcaption>
+            </figure>
+          </Link>
+
+          <ul className={`${styles['nav']} d-flex flex-row align-items-center justify-content-start`}>
+            {links.map((item, i) => {
+              return (
+                <li key={i}>
+                  <NavLink to={item.path} target={item.target}>
+                    {item.name}
+                  </NavLink>
+                </li>
+              )
+            })}
+          </ul>
+
           <div className={`d-flex flex-row align-items-center justify-content-end`} style={{ columnGap: `.3rem` }}>
             <div className={`${styles['network']} d-flex align-items-center justify-content-end`} onClick={() => showNetworkList()}>
               {auth.defaultChain && <SelectedChain />}
